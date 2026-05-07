@@ -1,55 +1,69 @@
-# API con Next.js
+API con Next.js y Swagger
 
-Este proyecto es una API sencilla construida con **Next.js** que proporciona tres endpoints:
+Este proyecto es una práctica de clase de 2º de DAW para la asignatura de Despliegue de Aplicaciones Web. La idea es aprender a crear una API con Next.js y documentarla usando Swagger.
 
-- `GET /api/users` → Devuelve una lista de usuarios en formato JSON.
-- `GET /api/products` → Devuelve una lista de productos en formato JSON.
-- `POST /api/product` → Permite agregar un producto enviando un JSON con `name` y `price`.
+En este caso, la API tiene varios endpoints de prueba y también se ha añadido Swagger para poder ver la documentación desde el navegador.
 
-## 📦 Instalación
+Qué hace el proyecto
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/rpiealb297/mi-app-next.git
-   cd nextjs-api
-   ```
+Es una API sencilla hecha con Next.js que permite probar endpoints básicos y ver cómo se documentan con Swagger.
 
-2. **Instalar dependencias:**
-   ```bash
-   npm install
-   ```
+Los endpoints disponibles son:
 
-## 🚀 Ejecución en local
+GET /api/test → endpoint de prueba para comprobar que la API funciona
+GET /api/users → devuelve una lista de usuarios de ejemplo
+GET /api/products → devuelve una lista de productos de ejemplo
+GET /api/swagger → devuelve la documentación de Swagger en formato JSON
+Instalación
 
-Para iniciar el servidor en desarrollo:
+Primero hay que clonar el proyecto:
 
-```bash
+git clone https://github.com/ralcara/swagger-nextjs.git
+cd swagger-nextjs
+
+Después se instalan las dependencias:
+
+npm install
+Ejecución del proyecto
+
+Para arrancar el proyecto en local:
+
 npm run dev
-```
 
-Esto iniciará un servidor en `http://localhost:3000`.
+Después se abre el navegador en:
 
-### 🔗 Endpoints disponibles
+http://localhost:3000
 
-- **Usuarios:** `http://localhost:3000/api/users`
-- **Productos:** `http://localhost:3000/api/products`
-- **Subir producto:** `http://localhost:3000/api/product` (requiere JSON con `name` y `price`: {"name":"producto1", "price":5.5})
+En algunos casos el puerto puede cambiar (por ejemplo 3003), así que hay que usar el que salga en la terminal.
 
-## 🌍 Despliegue
+Endpoints disponibles
 
-Puedes desplegar la API en **Vercel** con un solo comando:
+GET /api/test
+Sirve para comprobar que la API funciona correctamente. Devuelve algo simple como:
 
-```bash
-npm run build
-vercel deploy
-```
+{ "ok": true }
 
-O subirlo a cualquier servidor compatible con **Next.js**.
+GET /api/users
+Devuelve una lista de usuarios ficticios.
 
-## 📄 Licencia
+GET /api/products
+Devuelve una lista de productos ficticios.
 
-Este proyecto está bajo la Licencia MIT. Puedes usarlo y modificarlo libremente.
+GET /api/swagger
+Devuelve la documentación de Swagger con todos los endpoints.
 
----
+Swagger
 
-**¡Listo para usar! 🚀**
+Swagger se ha integrado en el proyecto para documentar la API.
+
+Se puede ver en:
+
+http://localhost:3000/api/swagger
+
+Desde ahí se pueden ver todos los endpoints y probarlos directamente desde el navegador sin usar Postman.
+
+Problemas que han salido durante el proyecto
+
+Durante el desarrollo ha habido conflictos entre rutas de Next.js (Pages Router y App Router), pero se ha solucionado quedándose con Pages Router y eliminando conflictos en las rutas.
+
+También ha sido necesario reiniciar el servidor y limpiar la caché en algunos casos.
